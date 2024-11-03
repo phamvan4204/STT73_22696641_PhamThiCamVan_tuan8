@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<t charset="utf-8">
+    < http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content=" width =devide-width, initial-scale+1.0">
+        <title>trang chủ </title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script scr="../js/>jquery-3.7.1.min.js"></script>
+        <script scr="../js/>bootstrap.min.js"></script>
+        <style>
+            .maudo {
+                font-size: 100%;
+                color: red;
+            }
+            
+            [class*="col-"] {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            
+            li {
+                width: 150px;
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                        var i = 2;
+                        $("#btnDK").click(function() {
+                            $("#myModal").modal();
+                        })
+
+                        function Kiemtrama() {
+                            var mauKT = /^[0-9]{9}$/;
+                            if (!mauKT.test($("#txtMa").val())) {
+                                $("#tbMa").html("bắt buộc nhập");
+                                $("#tbMa").addClass("bmaudo");
+
+                            } else {
+                                $("#tbMa").html("*");
+                                $("#tbMa").removeClass("maudo");
+                            }
+                        }
+                        $("#tbMa").blur(kiemtrama);
+
+                        function kiemtraHT() {
+                            var kt = />(^[A-Z]{1}[a-z]+)(^[A-Z]{1}[a-z]*)+$/;
+                            if ($("#txtHT").val() == "") {
+                                $("#tbten").html("nhapsai");
+                                $("#tbten").addClass("maudo");
+                                return false;
+                            }
+                            if (!kt.test($("#txtHT").val())) {
+                                $("#tbten").html("*viết hoa chữ cái đầu mỗi từ! ");
+                                $("#tbten").addClass("maudo");
+                                return false;
+                            }
+                            $("#tbTen").html("*");
+                            return true;
+
+                        };
+                        $("txtHT").blur(kiemtraHT);
+
+                        function KiemtraDc() {
+                            var maukT1 = />^[a-z0-9_]{3,15}$/;
+                            var maukt = / (abc)$/;
+                            if (
+                                $("#txtDC").val() == "") {
+                                $("#tbDC").html("nhapsai");
+                                $("#tbDc").addClass("maudo");
+                                return false;
+                            }
+                            if (!kt.test($("#txtDc").val())) {
+                                $("#tbDC").html("nhập sai ");
+                                $("#tbDC").addClass("maudo");
+                                return false;
+                            }
+                            $("#txtDC").html("*");
+                            return true;
+
+                        }
+                        $("#txtDC").blur(kiemtraDC);
+                        $("#slGia").change(function() {
+                            $("#slGia option:selected").each(function() {
+                                alert($(this).val());
+                                $("#txtDv").val($(this).val());
+
+                            });
+                        });
+                        $("#chkDoDung").click(function() {
+                                var tienDD = 0;
+                                var n = $(".chkDoDung: checked").length;
+                                if (n == 0) {
+                                    $(".chkDoDung: unchecked").each(function() {
+                                        tienDD = 0;
+                                        $("#txtDD").val(tienDD);
+                                    });
+                                }
+                                if (n > 0) {
+                                    $(".chkDoDung: unchecked").each(function() {
+                                        tienDD += parseFloat($(this).val());
+                                        $("#txtDD").val(tienDD);
+                                    });
+                                    var tong = parseFloat($("#txtDD").val()) + parseFloat($("#txtDV").val());
+                                    $("#txtTong").val(Tong);
+                                });
+                        }
+                        $("#btnsave").click(function() {
+                            var na = $("#txtma").val();
+                            var ht = $("#txtHt").val();
+                            var dc = $("#txtDc").val();
+                            var tdv = $("#txtDV").val();
+                            var TDD = $("#txtdd").val();
+                            var tong = $("#txtTong").val();
+                            var them =
+                        })
+        </script>
+
+        <body>
+            <div class="container boder">
+                <div class="row">
+                    <div class="col-12">
+
+                        <img scr="../img/HEADING.jpg" alt="" scrset="" width="1400" height="400">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar">
+                        <ul class="nav nav-navbar nav-expand">
+                            <li class="nav-item"><a href="#" class "nav-link">trang chủ</a></li>
+                            <li class="nav-item"><a href="#" class "nav-link" id="btnDk">đăng kí</a></li>
+                            <li class="nav-item"><a href="#" class "nav-link">trợ giúp</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="row">
+
+                    <table class="table-bordered table-light table-primary table-hover table striped" id="tbDanhSach">
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã học viên</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Tiền dịch Vụ</th>
+                            <th>Tiền đồ dùng</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>22696641</td>
+                            <td>Pham Thi Cam Van</td>
+                            <td>Phamvan52042gmail.com</td>
+                            <td>30000</td>
+                            <td>20000</td>
+                            <td>50000</td>
+                        </tr>
+
+                    </table>
+                    <div class="row">
+
+                        <div class="modal fade" id="mymodal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"> thông tin thanh toán</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                            </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="txtma">Mã học viên:</label>
+                                                <input type="text" class="form-control" id="txtma" placeholder="123456789" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtHt">Họ tên:</label>
+                                                <input type="text" class="form-control" id="txtHt" placeholder="tran thu huyen" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDc">Mã học viên:</label>
+                                                <input type="email" class="form-control" id="txtDc" placeholder="tranthuhuyen@gmail.com" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sLgia">Dịch vụ:</label>
+                                                <select class="form-control" id="slgia">
+                        <option value ="bơi">bơi</option>
+                        <option value ="bơi">bơi</option>
+                        <option value ="trượt ván">trượt ván</option>
+                        <option value ="moto nước">moto nước</option>
+                       </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDv">giá tiền:</label>
+                                                <input type="email" class="form-control" id="txtDv" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for>đồ dùng</label>
+                                                < class="form-check">
+
+                                                    <input type="checkbox" class="form-check-input" value="20000" id="chkquanaoboi">
+                                                    <label class="form-check-label" for="chkquanaoboi">quần  áo bơi</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="20000" id="chkphao">
+                                                <label class="form-check-label" for="chkphao">phao</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="60000" id="chkkinh">
+                                                <label class="form-check-label" for="chkkinh">kính</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDD">tiền đồ dùng</label>
+                                                <input type="text" class=" form-control" id="txtdd" value="0" disabled>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDD">tổng tiền</label>
+                                                <input type="text" class=" form-control" id="txttong" disabled>
+
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    <button type="button" id="btnsave" class="btn btn-success btn-block">thanh toán</button>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button type="reset" class="btn btn-danger btn-block">hủy</button>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+        </body>
+
+</html>
